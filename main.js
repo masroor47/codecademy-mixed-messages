@@ -9,13 +9,47 @@
 
 let finalMessage = [];
 
-const goodBeginning = ['Good news!', 'Congratulations!', 'Hooray!', 'Look at you!', 'Fantastic!', 'Wink Wink!'];
-const badBeginning = ['Bad news.', 'Oh no!', 'dam dam daaaaam', ': (', 'Careful!', 'Be aware!', "I'm sorry..."];
+const goodBeginning = [
+    'Good news!', 
+    'Congratulations!', 
+    'Hooray!', 
+    'Look at you!', 
+    'Fantastic!', 
+    'Wink Wink!'
+];
 
-const goodMiddle = ['a long awaited opportunity is coming'];
-const badMiddle = ['a betreyal is approaching'];
+const badBeginning = [
+    'Bad news.', 
+    'Oh no!', 
+    'dam dam daaaaam', 
+    ': (', 
+    'Careful!', 
+    'Be aware!', 
+    "I'm sorry..."
+];
 
-const time = ['today', 'tommorow', 'during this week', 'over the next month', 'during this season', 'this year'];
+const goodMiddle = [
+    'A long awaited opportunity is coming',
+    'The desired change will fall from the sky', 
+    'The monetary wish is finally approaching',
+    'A romantic adventure will entice you', // is this good or bad?
+];
+
+const badMiddle = [
+    'A betreyal is approaching',
+    'A harsh fight will come',
+    'A recession is coming',
+    'You will be broke',
+];
+
+const time = [
+    'today', 
+    'tommorow', 
+    'during this week', 
+    'over the next month', 
+    'during this season', 
+    'this year'
+];
 
 
 // returns a random element of the inputted array 
@@ -44,7 +78,7 @@ const buildMessage = () => {
         message.push(pickRandom(badMiddle))
     }
 
-    message.push(pickRandom(time))
+    message.push(pickRandom(time) + '.');
     return message
 }
 
