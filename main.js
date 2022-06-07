@@ -12,6 +12,12 @@ let finalMessage = [];
 const goodBeginning = ['Good news!', 'Congratulations!', 'Hooray!', 'Look at you!', 'Fantastic!', 'Wink Wink!'];
 const badBeginning = ['Bad news.', 'Oh no!', 'dam dam daaaaam', ': (', 'Careful!', 'Be aware!', "I'm sorry..."];
 
+const goodMiddle = ['a long awaited opportunity is coming'];
+const badMiddle = ['a betreyal is approaching'];
+
+const time = ['today', 'tommorow', 'during this week', 'over the next month', 'during this season', 'this year'];
+
+
 // returns a random element of the inputted array 
 const pickRandom = (array) => {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -19,25 +25,44 @@ const pickRandom = (array) => {
     return array[randomIndex]
 }
 
-const decideBeginning = (goodOrBad) => {
-    if (goodOrBad) {
-        console.log('picking good')
-        return pickRandom(goodBeginning);
+// const decideBeginning = (goodOrBad) => {
+//     if (goodOrBad) {
+//         console.log('picking good')
+//         return pickRandom(goodBeginning);
+//     }
+//     console.log("picking bad")
+//     return pickRandom(badBeginning)
+// }
+
+const buildMessage = () => {
+    const message = []
+    if (Math.random() < 0.5) {
+        message.push(pickRandom(goodBeginning))
+        message.push(pickRandom(goodMiddle))
+    } else {
+        message.push(pickRandom(badBeginning))
+        message.push(pickRandom(badMiddle))
     }
-    console.log("picking bad")
-    return pickRandom(badBeginning)
+
+    message.push(pickRandom(time))
+    return message
 }
 
 
 
 
-// randomly decides if the horoscope is gonna be good or bad
-const goodNews = Math.random() < 0.5;
+// randomly decides if the fortune is gonna be good or bad
+//const goodNews = Math.random() < 0.5;
 
 // adding first part to the final message array
-finalMessage.push(decideBeginning(goodNews));
+//finalMessage.push(decideBeginning(goodNews));
 
 
 
-finalMessage = finalMessage.join(' ');
-console.log(finalMessage);
+//finalMessage = finalMessage.join(' ');
+//console.log(finalMessage);
+
+
+let myMessage = buildMessage()
+myMessage = myMessage.join(' ')
+console.log(myMessage)
